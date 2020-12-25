@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+# for openbsd
+if [ -z "$1"]; then
+  echo "usage: vol 255"
+  echo "current value is: $(mixerctl outputs.master)"
+  exit 1
+else
+  mixerctl outputs.master=$1,$1
+fi
+
+# for linux

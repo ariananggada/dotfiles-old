@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+prompt="$1"
+answer=$(st -o "-" -g 100x5 -c st-prompt sh -c "echo -n '$prompt: '; read -s ANSWER; echo \$ANSWER")
+echo "${answer#*: }" | tr -d '\r'
+

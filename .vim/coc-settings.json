@@ -1,0 +1,52 @@
+{
+  "coc.preferences.formatOnType": true,
+  "diagnostic.enable": true,
+  "suggest.maxCompleteItemCount": 10,
+  "suggest.timeout": 3000,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 80,
+  "prettier.disableLanguages": [],
+  "codeLens.enable": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
+
+  "list.normalMappings": {
+    "<C-c>": "do:exit"
+  },
+
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
+
+  "languageserver": {
+    "gopls": {
+      "command": "gopls",
+      "filetypes": ["go"],
+      "rootPatterns": ["go.mod", ".git/"]
+    },
+    "dart": {
+      "command": "dart",
+      "args": [
+        "/usr/local/opt/dart/libexec/bin/snapshots/analysis_server.dart.snapshot",
+        "--lsp"
+      ],
+      "filetypes": ["dart"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": ["compile_commands.json", ".ccls", ".root", ".git/"],
+      "initializationOptions": {
+        "cacheDirectory": "/tmp/ccls"
+      }
+    }
+  }
+}

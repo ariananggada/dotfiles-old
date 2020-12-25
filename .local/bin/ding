@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+platform=$(uname -s)
+if [[ "$platform" == "Darwin" ]]; then
+  afplay /System/Library/Sounds/Ping.aiff
+else
+  aplay ~/.local/bin/Ping.wav
+fi

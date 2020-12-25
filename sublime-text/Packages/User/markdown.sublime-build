@@ -1,0 +1,9 @@
+{
+	"cmd": ["/usr/local/bin/pandoc", "-f", "latex", "-t", "latex", "$file", "-o", "op.pdf"],
+	"selector": "source.markdown",
+	"file_regex": "^(.*?):([0-9]+):([0-9]+):\\s[0-9]+:[0-9]+\\s(.*)$",
+	"osx":
+	{
+		"path": "~/.local/bin:~/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin"
+	}
+}

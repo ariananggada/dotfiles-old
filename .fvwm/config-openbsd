@@ -1,0 +1,163 @@
+# .fvwmrc - fv window manager configuration script
+# Adapted from Ingo Schwarze
+# http://openbsd-archive.7691.n7.nabble.com/FVWM-basic-config-file-td355826.html#a355828
+########################################################################
+# standard settings
+########################################################################
+# paths
+ModulePath /usr/X11R6/lib/X11/fvwm
+PixmapPath /usr/X11R6/include/X11/pixmaps
+IconPath   /usr/X11R6/include/X11/bitmaps
+# Set a single default font that I can actually read and remove
+# all other font definitions
+DefaultFont -adobe-helvetica-bold-r-*-*-18-*-*-*-*-*-*-*
+# screens
+DeskTopSize 1x1
+EdgeResistance 10000 10000
+EdgeScroll 0 0
+
+# windows
+#WindowFont -adobe-times-bold-r-*-*-14-*-*-*-*-*-*-*
+#IconFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+AddToDecor Default HilightColor Black Orange
+Style "*" UseDecor Default, Color Silver/DarkSlateBlue
+Style "*" BorderWidth 7, HandleWidth 7
+Style "*" Icon unknown1.xpm, IconBox 0 -10 -280 -1
+Style "*" MWMFunctions, MWMDecor, HintOverride
+Style "*" DecorateTransient, NoPPosition
+Style "*" SmartPlacement, StubbornPlacement, SloppyFocus
+########################################################################
+# menus
+########################################################################
+MenuStyle Black LightGrey DarkGrey
+
+AddToMenu Programs
++   "Xterm" Exec exec xterm
++   "Firefox" Exec exec firefox 
++   "Thunar" Exec exec thunar
++   "Leafpad" Exec exec leafpad
++   "Writer" Exec exec swriter
++   "Calc"  Exec exec scalc
++   "Impress" Exec exec simpress
++   "Shotwell" Exec exec shotwell
++   "GIMP"  Exec exec gimp
++   "Inkscape" Exec exec inkscape
++   "Audacious" Exec exec audacious
++   "Audacity" Exec exec audacity
++   "Volume" Popup Volume
+AddToMenu Volume "Volume" Title
++   "+5%%"  Exec exec sndioctl output.level=+0.05
++   "-5%%"  Exec exec sndioctl output.level=-0.05
++   "+1%%"  Exec exec sndioctl output.level=+0.01
++   "-1%%"  Exec exec sndioctl output.level=-0.01
+AddToMenu window "window" Title
++ "move" Move
++ "resize" Resize
++ "maximize" Maximize
++ "raise" Raise
++ "lower" Lower
++ "iconify" Iconify
++ "stick" Stick
++ "" Nop
++ "list" WindowList
++ "" Nop
++ "refresh" RefreshWindow
++ "close%" Close
++ "delete" Delete
++ "destroy" Destroy
+
+AddToMenu system "system" Title
++ "xlock" Exec exec xlock -mode blank
++ "Window" popup window
++ "recapture" Recapture
++ "xrdb -load" Exec xrdb -load $HOME/.Xdefaults
++ "restart" Restart fvwm
++ "quit" Quit
++ " " ""
++ " " ""
++ " " ""
++ "Shutdown" Popup Shutdown
+
+# Needs settings in doas.conf for user or for wheel group
+AddToMenu Shutdown " \!\! Shutdown \!\!" Title
++ " " " "
++ "Reboot" Exec exec doas reboot
++ " " " "
++ "Shutdown" Exec exec doas shutdown -ph now
+########################################################################
+# mouse
+########################################################################
+ClickTime 100
+
+# on the wallpaper
+Mouse 1 R A Menu Programs Nop
+Mouse 2 R A WindowList Nop
+Mouse 3 R A Menu system Nop
+
+# in the title bar of a window
+Mouse 0 1 A Menu window Close
+Mouse 1 T A Move-or-Raise
+Mouse 2 T A Move
+Mouse 3 T A Lower
+Mouse 0 2 A Maximize-Func
+Mouse 0 4 A Iconify
+							
+# at the edge of a window
+Mouse 0 SF A Resize-or-Raise
+
+# in an icon
+Mouse 1 I A Iconify
+Mouse 2 I A Move
+Mouse 3 I A Iconify
+
+# Keyboard accelerators
+Key F1  A M Menu Programs
+Key F2  A M Menu window
+Key F3  A M WindowList FvwmWinList
+
+# Pressing the Windows key and then the W key brings up the window list. 
+# See the fvwm manual under Mouse Button Context Modifiers Function for 
+# the details. The crucial sentence is "X11 modifiers mod1 through mod5 
+# are represented as the digits 1 through 5".
+# So the '4' below represents Mod4 or the Windows key!
+Key W   A 4 WindowList FvwmWinList
+Key P   A 4 Menu Programs
+Key X   A 4 Menu window
+
+#KPB: This was missing!
+AddToFunc Maximize-Func  "M" Maximize  
++    "C" Maximize  100 100
++    "D" Maximize  
+
+#KPB: Function to combine moving and raising by clicking
+#KPB: on title bar
+AddToFunc Move-or-Raise  
++    "I" Raise
++    "M" Move
++    "D" Lower
+#KPB: Function to combine raising and resizing by clicking
+#KPB: on border or frame
+AddToFunc Resize-or-Raise 
++    "I" Raise
++    "M" Resize
++    "D" Lower
+
+#KPB: I need my Alt-Tab window cycle!
+#KPB: This combines changing focus and raising for alt-tab
+#KPB: See end of the keyboard shortcut section below
+AddToFunc SelectWindow
++ I Focus
++ I Raise
++ I WarpToWindow 50 8p
+# KPB: alt-tabbing kpb Look for AddToFunc SelectWindow above
+Key Tab  A  M  Next (CurrentDesk !Iconic) SelectWindow
+# KPB: alt-shift-tabbing to reverse
+Key Tab  A  SM  Prev (CurrentDesk !Iconic) SelectWindow
+############################################################################
+
+########################################################################
+# various programs
+########################################################################
+Style "Fvwm*"       NoTitle, Sticky
+Style "Fvwm*"       BorderWidth 2, CirculateSkipIcon, CirculateSkip
+

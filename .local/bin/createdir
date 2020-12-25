@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if [[ -z $1 ]]; then
+  echo "usage: $0 DIR_NAME"
+else
+  time_stamp=$(date +"%Y%m%d%H%M")
+  args="$@"
+  mkdir "$time_stamp-$args"
+fi

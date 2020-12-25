@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+# bisa gini loh
+#   rg -e "(http|https)://[a-zA-Z0-9./?=_%:-]*" -o | cut -d':' -f2-
+  # rg --no-line-number -e "(http|https)://[a-zA-Z0-9./?=_%:-]*" -o
+
+# # TODO: need to implement, but should in most simple way
+# automation for download all media files and save to relative path directory (name "media")
+# COMMAND:
+# urlgrep `fzf` | grep -E "txt|jpg|jpeg|bmp|tiff|gif|mp4|avi|srt" | wget -P media -O -
+# urlgrep `fzf` | grep -E "txt|jpg|jpeg|bmp|tiff|gif|mp4|avi|srt" | aria2c -d media -i -
+
+
+if command -v rg &> /dev/null
+then
+  GREP_TOOLS='rg -e "(http|https)://[a-zA-Z0-9./?=_%:-]*" -o'
+else
+  GREP_TOOLS='grep -REo "(http|https)://[a-zA-Z0-9./?=_%:-]*"'
+fi
+
+if [[ -z $1 ]]; then
+  # # u should using file instead
+  # eval "$GREP_TOOLS | cut -d':' -f2- | sort -u | uniq"
+  echo "usage: $0 <filename>"
+else
+  # $GREP_TOOLS "$1" | cut -d':' -f2-
+  eval "$GREP_TOOLS $1 | cut -d':' -f1- | sort -u | uniq"
+fi

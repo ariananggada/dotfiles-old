@@ -1,0 +1,7 @@
+browser "firefox -private"
+player "mpv"
+download-path "~/Downloads/%n"
+save-path "~/Downloads"
+reload-threads 20
+cleanup-on-quit yes
+text-width 80

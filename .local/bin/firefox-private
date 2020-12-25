@@ -1,0 +1,4 @@
+#!/bin/sh
+
+command -v firefox > /dev/null 2>&1 &&
+  firefox -private-window

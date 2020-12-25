@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if command -v rg &> /dev/null
+then
+  GREP_TOOLS='rg -e "txt|jpg|jpeg|bmp|tiff|gif|mp4|avi|srt"'
+else
+  GREP_TOOLS='grep -RE "txt|jpg|jpeg|bmp|tiff|gif|mp4|avi|srt"'
+fi
+
+# using aria2 downloader
+urlgrep `fzf` | $GREP_TOOLS | sort -u | uniq | aria2c -d ./media -i -

@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+open https://translate.google.co.id/#view=home&op=translate&sl=auto&tl=id&text=translate
