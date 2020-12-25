@@ -1,2 +1,2 @@
-# dotfiles
-unix dotfiles setup, very minimal POSIX compatibility
+# my dotfiles
+my unix dotfiles setup
