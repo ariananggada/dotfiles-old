@@ -9,20 +9,24 @@ import datetime
 import pyfiglet
 import time
 
+font="contrast"
+# font="doom"
+# font="starwars"
+
 def countdown(t):
     while t:
         mins, secs = divmod(t, 60)
         timer = '{:02d}:{:02d}'.format(mins, secs) 
-        formatPrint(timer)
+        formatPrint(timer, font=font)
         time.sleep(1)
         t -= 1
 
-def formatPrint(textData):
+def formatPrint(textData, font):
     colorama.init()
     colors = []
 
     colors = ['red', 'yellow', 'green', 'cyan', 'blue', 'magenta']
-    figletTextData = pyfiglet.figlet_format(textData)
+    figletTextData = pyfiglet.figlet_format(textData, font=font)
 
     colorsCounter = 0
     for char in figletTextData:
