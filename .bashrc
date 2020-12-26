@@ -208,8 +208,8 @@ countdown() {
       # notify "countdown" "countdown start" && termdown.py $1 && reset;
       # notify "countdown" "rest for five minutes" && reset && echo "rest for 5 minutes" && sleep $2;
 
-      termdown.py $1 && reset;
-      reset && echo "rest for 5 minutes" | figlet | lolcat ; sleep $2 && reset;
+      termdown.py --title "work" $1 && reset;
+      reset && termdown.py --title "rest" $2 && reset;
     done
   fi
 }
