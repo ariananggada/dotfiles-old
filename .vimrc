@@ -115,7 +115,10 @@ silent! if plug#begin('~/.vim/plugged')
   let g:mkdp_browser = 'surf'
 
   Plug 'airblade/vim-gitgutter'
+
   Plug 'preservim/nerdtree'
+  let NERDTreeShowHidden=1
+  let NERDTreeIgnore=['\.DS_Store$', '\.git$']
 
   if v:version >= 800
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
