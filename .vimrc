@@ -1096,10 +1096,10 @@ endfunction
 autocmd User GoyoEnter silent! call <SID>goyo_enter() | redraw!
 autocmd User GoyoLeave silent! call <SID>goyo_leave() | redraw!
 
-autocmd BufRead,BufNewFile *.md | PencilLight
-autocmd BufRead,BufNewFile *.txt | PencilLight
-autocmd BufRead,BufNewFile *.tex | PencilLight
-autocmd FileType gitcommit | PencilLight 
+" autocmd BufRead,BufNewFile *.md | PencilLight
+" autocmd BufRead,BufNewFile *.txt | PencilLight
+" autocmd BufRead,BufNewFile *.tex | PencilLight
+" autocmd FileType gitcommit | PencilLight 
 
 " end of goyo setup
 " }}}
