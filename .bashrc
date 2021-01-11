@@ -110,9 +110,12 @@ if [ -d "$HOME/tmp" ]; then
   fi
 fi
 
-# # personal wiki, zettelkasten note-taking alias
-# alias wiki='nvim ~/wiki/'
-# alias wikis='fd -ap . ./wiki/ | sk | xargs $EDITOR'
+# personal wiki, zettelkasten note-taking alias
+alias wiki='vim ~/wiki/'
+alias wikis='fd -ap . ./wiki/ | sk | xargs $EDITOR'
+
+# notebook alias
+alias notebook='vim ~/wiki/notebook.md'
 
 # # docker
 # eval "$(docker-machine env default)"
