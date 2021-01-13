@@ -114,7 +114,7 @@ fi
 alias wiki='vim ~/wiki/'
 alias wikis='fd -ap . ./wiki/ | sk | xargs $EDITOR'
 
-# notebook alias
+# note alias
 alias notebook='vim ~/wiki/notebook.md'
 
 # # docker
@@ -157,6 +157,22 @@ if [[ -d "/usr/NX" ]]; then
 fi
 
 ## Function
+
+# note taking
+note() {
+    if [[ -z $1 ]]; then
+        notes
+    else
+        args="$@"
+        createfile "$args-note" md
+    fi
+}
+
+# list notes
+notes() {
+  fd -e md -ap . ./ | sk | xargs $EDITOR
+}
+
 # Use lf to switch directories and bind it to ctrl-o
 lfcd() {
     # tmp="$(mktemp)"
