@@ -309,17 +309,17 @@ if has('gui_running')
   set background=dark
   try
     if has('mac')
-      set guifont=IBMPlexMono:h12
+      set guifont=IBMPlexMono:h11
       " set guifont=Cousine:h10
       " set guifont=Inconsolata:h12
       " set guifont=Roboto Mono-Regular:h10
     elseif has('win32')
-      set guifont=IBM_Plex_Mono:h10:cANSI:qDRAFT
+      set guifont=IBM_Plex_Mono:h11:cANSI:qDRAFT
       " set guifont=Cousine:h10:cANSI:qDRAFT
       " set guifont=Inconsolata:h12:cANSI:qDRAFT
       " set guifont=Roboto_Mono:h10:cANSI:qDRAFT
     else
-      set guifont=IBM\ Plex\ Mono\ 10
+      set guifont=IBM\ Plex\ Mono\ 11
       " set guifont=Cousine\ 12
       " set guifont=Inconsolata\ 12
       " set guifont=Roboto\ Mono\ 10
