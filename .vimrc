@@ -309,7 +309,8 @@ if has('gui_running')
   set background=dark
   try
     if has('mac')
-      set guifont=Consolas:h13
+      set guifont=ConsolasNerdFontCompleteM-:h13
+      " set guifont=Consolas:h13
       " set guifont=Monaco:h11
       " set guifont=Inconsolata:h12
       " set guifont=Cousine:h10
