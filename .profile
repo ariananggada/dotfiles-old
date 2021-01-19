@@ -80,8 +80,7 @@ if [[ "${OS}" == "Linux" ]] ||
   export VIMCONFIG=$HOME/.vim
 
   # rust
-  export PATH="$HOME/.cargo/bin:$PATH"
-
+  
   # golang
   if [[ "${OS}" != "Darwin" ]]; then
     export PATH=$PATH:/usr/local/go/bin
@@ -107,4 +106,4 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # my note path
 export NOTE_PATH="$HOME/wiki/notes"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"
