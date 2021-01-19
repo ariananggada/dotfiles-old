@@ -79,7 +79,16 @@ if [[ "${OS}" == "Linux" ]] ||
   # vim
   export VIMCONFIG=$HOME/.vim
 
+  # macports
+  if ! type "port" > /dev/null; then
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+  fi
+
+
   # rust
+  if ! type "cargo" > /dev/null; then
+    source "$HOME/.cargo/env"
+  fi
   
   # golang
   if [[ "${OS}" != "Darwin" ]]; then
@@ -91,19 +100,9 @@ if [[ "${OS}" == "Linux" ]] ||
   if [[ "${OS}" == "Darwin" ]]; then
     JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home
   fi
- 
 
 fi
-
-##
-# Your previous /Users/ian/.profile file was backed up as /Users/ian/.profile.macports-saved_2020-07-21_at_00:00:00
-##
-
-# MacPorts Installer addition on 2020-07-21_at_00:00:00: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 # my note path
 export NOTE_PATH="$HOME/wiki/notes"
 
-source "$HOME/.cargo/env"
