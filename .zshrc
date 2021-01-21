@@ -221,6 +221,21 @@ fi
 
 ## Function
 
+# note taking
+note() {
+    if [[ -z $1 ]]; then
+        notes
+    else
+        args="$@"
+        createfile "$args-note" md
+    fi
+}
+
+# list notes
+notes() {
+  fd -e md -ap . ./ | sk | xargs $EDITOR
+}
+
 notify() {
   if [ -z "$1" ]
   then
@@ -228,6 +243,26 @@ notify() {
   else
     result=$( { $@ } 2>&1 )
     ding && osascript -e "display notification \"$result\" with title \"$1\""
+  fi
+}
+
+countdown() {
+  if [[ -z "$1" ]]; then
+    echo "usage: countdown [time] (2500 are 25 minutes, 300 are 5 minutes)"
+    echo "example: countdown 2500 300"
+  elif [[ -z "$2" ]]; then
+    echo "usage: countdown [time] (2500 are 25 minutes, 300 are 5 minutes)"
+    echo "example: countdown 2500 300"
+  else
+    while [ true ]
+    do
+
+      # notify "countdown" "countdown start" && termdown.py $1 && reset;
+      # notify "countdown" "rest for five minutes" && reset && echo "rest for 5 minutes" && sleep $2;
+
+      termdown.py --title "work" $1 && reset;
+      reset && termdown.py --title "rest" $2 && reset;
+    done
   fi
 }
 
