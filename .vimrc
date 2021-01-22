@@ -157,6 +157,9 @@ silent! if plug#begin('~/.vim/plugged')
   " emmet stuff
   Plug 'mattn/emmet-vim'
 
+  " Calendar
+  Plug 'mattn/calendar-vim'
+
   " for presentation
   Plug 'sotte/presenting.vim'
   au FileType markdown let b:presenting_slide_separator = '#'
