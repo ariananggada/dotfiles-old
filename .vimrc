@@ -774,6 +774,9 @@ let g:netrw_liststyle=3 " set default netrw default style to tree style
 
 " Functions {{{
 
+" CDC = Change to Directory of Current file
+command CDC cd %:p:h
+
 function! HandleURL()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
   echo s:uri

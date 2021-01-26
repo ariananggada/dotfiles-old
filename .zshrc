@@ -177,9 +177,9 @@ if [[ -L "$NOTE_PATH" && -d "$NOTE_PATH" ]]; then
 fi
 
 # scratch file
-if [ -d "$HOME/tmp" ]; then
-  SCRATCH_FILE="$HOME"/tmp/scratch.md
-  if [ -e "$HOME/tmp/scratch.md" ]; then
+if [ -d "$HOME/wiki" ]; then
+  SCRATCH_FILE="$HOME"/wiki/scratch.md
+  if [ -e "$HOME/wiki/scratch.md" ]; then
     alias scratch='$EDITOR "$SCRATCH_FILE"'
   else
     touch "$SCRATCH_FILE"
