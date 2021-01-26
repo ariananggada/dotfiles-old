@@ -169,15 +169,21 @@ else
   alias sortbigfile='find . -type f -exec du -h {} \; | sort -r'
 fi
 
-# personal wiki, zettelkasten note-taking alias
-alias wiki='nvim ~/wiki/'
-alias wikis='fd -ap . ~/wiki/ | sk | xargs $EDITOR'
-
 # note taking zettel
-export NOTES_PATH="$HOME/notes"
+export NOTES_PATH="$HOME/wiki/notes"
 if [[ -L "$NOTES_PATH" && -d "$NOTES_PATH" ]]; then
   # # moved to vimrc func
   # export NOTES_PATH_SYMLINK=$(readlink $NOTES_PATH)
+fi
+
+# scratch file
+if [ -d "$HOME/tmp" ]; then
+  SCRATCH_FILE="$HOME"/tmp/scratch.md
+  if [ -e "$HOME/tmp/scratch.md" ]; then
+    alias scratch='$EDITOR "$SCRATCH_FILE"'
+  else
+    touch "$SCRATCH_FILE"
+  fi
 fi
 
 # # docker
@@ -220,21 +226,6 @@ if [[ -d "/usr/NX" ]]; then
 fi
 
 ## Function
-
-# note taking
-note() {
-    if [[ -z $1 ]]; then
-        notes
-    else
-        args="$@"
-        createfile "$args-note" md
-    fi
-}
-
-# list notes
-notes() {
-  fd -e md -ap . ./ | sk | xargs $EDITOR
-}
 
 notify() {
   if [ -z "$1" ]
