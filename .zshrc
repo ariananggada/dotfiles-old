@@ -170,10 +170,10 @@ else
 fi
 
 # note taking zettel
-export NOTES_PATH="$HOME/wiki/notes"
-if [[ -L "$NOTES_PATH" && -d "$NOTES_PATH" ]]; then
+export NOTE_PATH="$HOME/wiki/note"
+if [[ -L "$NOTE_PATH" && -d "$NOTE_PATH" ]]; then
   # # moved to vimrc func
-  # export NOTES_PATH_SYMLINK=$(readlink $NOTES_PATH)
+  # export NOTE_PATH_SYMLINK=$(readlink $NOTE_PATH)
 fi
 
 # scratch file
