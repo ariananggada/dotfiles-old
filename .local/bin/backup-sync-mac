@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
-rsync -av --progress ~/Desktop /Volumes/IANDATA/data/backup-personal/Desktop &&
-rsync -av --progress ~/Documents /Volumes/IANDATA/data/backup-personal/Documents &&
-rsync -av --progress ~/Downloads /Volumes/IANDATA/data/backup-personal/Downloads &&
-rsync -av --progress ~/bin /Volumes/IANDATA/data/backup-personal/bin &&
-rsync -av --progress ~/tools /Volumes/IANDATA/data/backup-personal/tools &&
-rsync -av --progress ~/tools /Volumes/IANDATA/tools &&
-rsync -av --progress ~/tmp /Volumes/IANDATA/data/backup-personal/tmp &&
-rsync -av --progress ~/tmp /Volumes/IANDATA/tmp &&
-rsync -av --progress ~/.local /Volumes/IANDATA/data/backup-personal/.local &&
-rsync -av --progress ~/.config /Volumes/IANDATA/data/backup-personal/.config
+rsync -av --progress ~/Desktop/* /Volumes/IANDATA/data/backup-personal/Desktop/ &&
+rsync -av --progress ~/Documents/* /Volumes/IANDATA/data/backup-personal/Documents/ &&
+rsync -av --progress ~/Downloads/* /Volumes/IANDATA/data/backup-personal/Downloads/ &&
+rsync -av --progress ~/bin/* /Volumes/IANDATA/data/backup-personal/bin/ &&
+rsync -av --progress ~/tools/* /Volumes/IANDATA/data/backup-personal/tools/ &&
+rsync -av --progress ~/tools/* /Volumes/IANDATA/tools/ &&
+rsync -av --progress ~/tmp/* /Volumes/IANDATA/data/backup-personal/tmp/ &&
+rsync -av --progress ~/tmp/* /Volumes/IANDATA/tmp/ &&
+rsync -av --progress ~/.local/* /Volumes/IANDATA/data/backup-personal/.local/ &&
+rsync -av --progress ~/.config/* /Volumes/IANDATA/data/backup-personal/.config/
