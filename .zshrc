@@ -186,14 +186,22 @@ if [ -d "$HOME/wiki" ]; then
   fi
 fi
 
+
 # # docker
-# eval "$(docker-machine env default)"
-# alias dps='docker ps -a'
-# alias di='docker images -a'
-# alias dv='docker volume ls'
-# alias dn='docker network ls'
-# alias sprune='docker system prune'
-# alias vprune='docker volume prune'
+
+
+if ! type "docker" > /dev/null; then
+  alias dps='docker ps -a'
+  alias di='docker images -a'
+  alias dv='docker volume ls'
+  alias dn='docker network ls'
+  alias sprune='docker system prune'
+  alias vprune='docker volume prune'
+
+  if ! type "docker-machine" > /dev/null; then
+    eval "$(docker-machine env default)"
+  fi
+fi
 
 # skim
 export PATH="$PATH:$HOME/.skim/bin"
