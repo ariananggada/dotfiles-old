@@ -188,9 +188,7 @@ fi
 
 
 # # docker
-
-
-if ! type "docker" > /dev/null; then
+if command -v "docker" > /dev/null 2>&1; then
   alias dps='docker ps -a'
   alias di='docker images -a'
   alias dv='docker volume ls'
@@ -198,7 +196,7 @@ if ! type "docker" > /dev/null; then
   alias sprune='docker system prune'
   alias vprune='docker volume prune'
 
-  if ! type "docker-machine" > /dev/null; then
+  if command -v "docker-machine" > /dev/null 2>&1; then
     eval "$(docker-machine env default)"
   fi
 fi
