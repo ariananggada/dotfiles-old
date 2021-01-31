@@ -118,13 +118,20 @@ if [ -d "$HOME/tmp" ]; then
 fi
 
 # # docker
-# eval "$(docker-machine env default)"
-# alias dps='docker ps -a'
-# alias di='docker images -a'
-# alias dv='docker volume ls'
-# alias dn='docker network ls'
-# alias sprune='docker system prune'
-# alias vprune='docker volume prune'
+if command -v "docker" > /dev/null 2>&1; then
+  alias dps='docker ps -a'
+  alias di='docker images -a'
+  alias dv='docker volume ls'
+  alias dn='docker network ls'
+  alias sprune='docker system prune'
+  alias vprune='docker volume prune'
+
+  # # using docker-machine start default first
+  # # disabled for now
+  # if command -v "docker-machine" > /dev/null 2>&1; then
+  #   eval "$(docker-machine env default)"
+  # fi
+fi
 
 # skim
 export PATH="$PATH:$HOME/.skim/bin"

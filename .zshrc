@@ -196,9 +196,11 @@ if command -v "docker" > /dev/null 2>&1; then
   alias sprune='docker system prune'
   alias vprune='docker volume prune'
 
-  if command -v "docker-machine" > /dev/null 2>&1; then
-    eval "$(docker-machine env default)"
-  fi
+  # # using docker-machine start default first
+  # # disabled for now
+  # if command -v "docker-machine" > /dev/null 2>&1; then
+  #   eval "$(docker-machine env default)"
+  # fi
 fi
 
 # skim
