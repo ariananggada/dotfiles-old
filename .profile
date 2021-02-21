@@ -101,6 +101,13 @@ if [[ "${OS}" == "Linux" ]] ||
     JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home
   fi
 
+  # show hidden dir
+  if [[ "${OS}" == "Darwin" ]]; then
+    alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+    alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+  fi
+
+
 fi
 
 # my note path
