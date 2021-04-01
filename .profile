@@ -93,8 +93,8 @@ if [[ "${OS}" == "Linux" ]] ||
   # golang
   if [[ "${OS}" != "Darwin" ]]; then
     export PATH=$PATH:/usr/local/go/bin
+    export PATH="$PATH:$(go env GOPATH)/bin"
   fi
-  export PATH="$PATH:$(go env GOPATH)/bin"
 
   # java
   if [[ "${OS}" == "Darwin" ]]; then
@@ -113,3 +113,4 @@ fi
 # my note path
 export NOTE_PATH="$HOME/wiki/notes"
 
+export PATH="/usr/local/sbin:$PATH"
