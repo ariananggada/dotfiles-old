@@ -100,6 +100,11 @@ else
   alias sortbigfile='find . -type f -exec du -h {} \; | sort -r'
 fi
 
+# docker machine
+if command -v docker-machine > /dev/null; then
+  eval $(docker-machine env docker-machine)
+fi
+
 # note taking zettel
 export NOTE_PATH="$HOME/wiki/note"
 
