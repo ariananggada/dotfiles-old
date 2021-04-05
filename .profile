@@ -80,13 +80,13 @@ if [[ "${OS}" == "Linux" ]] ||
   export VIMCONFIG=$HOME/.vim
 
   # macports
-  if ! type "port" > /dev/null; then
+  if ! command -v port &> /dev/null; then
     export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
   fi
 
 
   # rust
-  if ! type "cargo" > /dev/null; then
+  if ! command -v cargo &> /dev/null; then
     source "$HOME/.cargo/env"
   fi
   
