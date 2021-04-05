@@ -93,12 +93,14 @@ if [[ "${OS}" == "Linux" ]] ||
   # golang
   if [[ "${OS}" != "Darwin" ]]; then
     export PATH=$PATH:/usr/local/go/bin
+    export GOPATH="$(go env GOPATH)"
     export PATH="$PATH:$(go env GOPATH)/bin"
   fi
 
 
   if [[ "${OS}" == "Darwin" ]]; then
     export PATH="$PATH:$(go env GOPATH)/bin"
+    export GOPATH="$(go env GOPATH)"
   fi
 
   # java
