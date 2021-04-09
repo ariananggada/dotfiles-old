@@ -164,6 +164,9 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'sotte/presenting.vim'
   au FileType markdown let b:presenting_slide_separator = '#'
 
+  " for discord status
+  Plug 'andweeb/presence.nvim'
+
   call plug#end()
 endif
 " }}}
@@ -541,8 +544,7 @@ try
         \ 'coc-pyright',
         \ 'coc-rust-analyzer',
         \ 'coc-vimtex',
-        \ 'coc-prettier',
-        \ 'coc-discord-rpc'
+        \ 'coc-prettier'
         \ ]
 
   command! -nargs=0 Prettier :CocCommand prettier.formatFile
