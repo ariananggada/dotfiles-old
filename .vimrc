@@ -164,18 +164,6 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'sotte/presenting.vim'
   au FileType markdown let b:presenting_slide_separator = '#'
 
-  " vimsence for discord
-  Plug 'vimsence/vimsence'
-
-  let g:vimsence_client_id = '439476230543245312'
-  let g:vimsence_small_text = 'NeoVim'
-  let g:vimsence_small_image = 'neovim'
-  let g:vimsence_editing_details = 'Editing: {}'
-  let g:vimsence_editing_state = 'Working on: {}'
-  let g:vimsence_file_explorer_text = 'In NERDTree'
-  let g:vimsence_file_explorer_details = 'Looking for files'
-  let g:vimsence_custom_icons = {'filetype': 'iconname'}
-
   call plug#end()
 endif
 " }}}
