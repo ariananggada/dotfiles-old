@@ -103,7 +103,7 @@ if [[ "${OS}" == "Linux" ]] ||
     export GOPATH="$(go env GOPATH)"
   fi
 
-  # java
+  # java openjdk11
   if [[ "${OS}" == "Darwin" ]]; then
     JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home
   fi
