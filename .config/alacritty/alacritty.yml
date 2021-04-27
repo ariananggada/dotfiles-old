@@ -28,19 +28,19 @@ scrolling:
 
 font:
   normal:
-    family: 'DejaVu Sans Mono'
-    style: Book
+    family: 'Inconsolata'
+    style: Regular
 
   bold:
-    family: 'DejaVu Sans Mono'
+    family: 'Inconsolata'
     style: Bold
 
   italic:
-    family: 'DejaVu Sans Mono'
+    family: 'Inconsolata'
     style: Italic
 
   # Point size
-  size: 14
+  size: 16
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
