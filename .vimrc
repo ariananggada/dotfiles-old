@@ -164,6 +164,9 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'sotte/presenting.vim'
   au FileType markdown let b:presenting_slide_separator = '#'
 
+  " joplin integration
+  Plug 'tenfyzhong/joplin.vim'
+
   call plug#end()
 endif
 " }}}
