@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+if [[ -z $1 ]]; then
+  echo "usage: $0 FILE_NAME EXTENSION"
+elif [[ -z $2 ]]; then
+  echo "usage: $0 FILE_NAME EXTENSION"
+else
+  TIME_STAMP=$(date +"%Y%m%d%H%M")
+  FILE_NAME="$1"
+  EXTENSION="$2"
+  echo "$TIME_STAMP""_$FILE_NAME.$EXTENSION"
+fi
