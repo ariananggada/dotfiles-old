@@ -28,15 +28,15 @@ scrolling:
 
 font:
   normal:
-    family: 'Inconsolata'
+    family: 'PragmataPro'
     style: Regular
 
   bold:
-    family: 'Inconsolata'
+    family: 'PragmataPro'
     style: Bold
 
   italic:
-    family: 'Inconsolata'
+    family: 'PragmataPro'
     style: Italic
 
   # Point size
