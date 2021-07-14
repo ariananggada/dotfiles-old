@@ -28,16 +28,16 @@ scrolling:
 
 font:
   normal:
-    family: 'PragmataPro'
-    style: Regular
+    family: 'Operator Mono'
+    style: Book
 
   bold:
-    family: 'PragmataPro'
+    family: 'Operator Mono'
     style: Bold
 
   italic:
-    family: 'PragmataPro'
-    style: Italic
+    family: 'Operator Mono'
+    style: Book Italic
 
   # Point size
   size: 14
