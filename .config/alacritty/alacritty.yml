@@ -28,19 +28,19 @@ scrolling:
 
 font:
   normal:
-    family: 'Operator Mono'
-    style: Book
+    family: 'Source Code Pro'
+    style: Regular
 
   bold:
-    family: 'Operator Mono'
+    family: 'Source Code Pro'
     style: Bold
 
   italic:
-    family: 'Operator Mono'
+    family: 'Source Code Pro'
     style: Book Italic
 
   # Point size
-  size: 14
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

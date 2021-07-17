@@ -318,26 +318,24 @@ if has('gui_running')
   set background=dark
   try
     if has('mac')
-      set guifont=OperatorMono-Book:h14
-      " set guifont=SFMono-Regular:h12
+      set guifont=SourceCodePro-Regular:h12
+      " set guifont=OperatorMono-Book:h14
       " set guifont=Inconsolata:h14
       " set guifont=Consolas:h14
-      " set guifont=SourceCodePro-Regular:h16
       " set guifont=Monaco:h11
     elseif has('win32')
-      set guifont=Operator_Mono:h14:cANSI:qDRAFT
-      " set guifont=SF_Mono:h12:cANSI:qDRAFT
+      set guifont=Source_Code_Pro:h12:cANSI:qDRAFT
+      " set guifont=Operator_Mono:h14:cANSI:qDRAFT
       " set guifont=Inconsolata:h14:cANSI:qDRAFT
       " set guifont=Consolas:h14:cANSI:qDRAFT
       " set guifont=Monaco:h11:cANSI:qDRAFT
       " set guifont=Cousine:h10:cANSI:qDRAFT
       " set guifont=Roboto_Mono:h10:cANSI:qDRAFT
     else
-      set guifont=Operator\ Mono\ 14
-      " set guifont=SF\ Mono\ 12
+      set guifont=Source\ Code\ Pro\ 12
+      " set guifont=Operator\ Mono\ 14
       " set guifont=Inconsolata\ 14
       " set guifont=Consolas\ 14
-      " set guifont=Source\ Code\ Pro\ 14
       " set guifont=Monaco\ 11
       " set guifont=Cousine\ 12
       " set guifont=Roboto\ Mono\ 10
