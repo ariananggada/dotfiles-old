@@ -28,15 +28,15 @@ scrolling:
 
 font:
   normal:
-    family: 'Source Code Pro'
+    family: 'IBM Plex Mono'
     style: Regular
 
   bold:
-    family: 'Source Code Pro'
+    family: 'IBM Plex Mono'
     style: Bold
 
   italic:
-    family: 'Source Code Pro'
+    family: 'IBM Plex Mono'
     style: Italic
 
   # Point size
