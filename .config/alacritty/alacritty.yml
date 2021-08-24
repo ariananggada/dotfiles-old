@@ -28,19 +28,19 @@ scrolling:
 
 font:
   normal:
-    family: 'Source Code Pro'
+    family: 'IBM Plex Mono'
     style: Regular
 
   bold:
-    family: 'Source Code Pro'
+    family: 'IBM Plex Mono'
     style: Bold
 
   italic:
-    family: 'Source Code Pro'
-    style: Book Italic
+    family: 'IBM Plex Mono'
+    style: Italic
 
   # Point size
-  size: 14
+  size: 10
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -169,8 +169,8 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: false
 
-  url:
-    # URL launcher
+  hints:
+    # hints launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
     # The URL is always added to the command as the last parameter.

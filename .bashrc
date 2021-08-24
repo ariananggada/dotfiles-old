@@ -202,11 +202,12 @@ notify() {
     echo "usage: $0 [bin_name] [message]"
   else
     # result=$( { $@ } 2>&1 )
+    result=$($@ 2>&1)
     # ding && osascript -e "display notification \"$result\" with title \"$1\""
     if [[ "$OS" == 'Darwin' ]]; then
       ding && osascript -e "display notification \"$2\" with title \"$1\""
     else
-      ding && notify-send "$2 $1"
+      ding && notify-send "$1" "command success \n $result"
     fi
   fi
 }
