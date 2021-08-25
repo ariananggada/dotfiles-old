@@ -551,7 +551,8 @@ try
         \ 'coc-pyright',
         \ 'coc-rust-analyzer',
         \ 'coc-vimtex',
-        \ 'coc-prettier'
+        \ 'coc-prettier',
+        \ 'coc-yaml'
         \ ]
 
   command! -nargs=0 Prettier :CocCommand prettier.formatFile
