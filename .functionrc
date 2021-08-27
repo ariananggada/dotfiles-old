@@ -71,7 +71,13 @@ vfc() {
 vd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
-      -print 2> /dev/null | sk --no-multi) &&
+      -print 2> /dev/null | fzf --no-multi) &&
+  cd "$dir"
+}
+
+vdroot() {
+  local dir
+  dir=$(fd . $HOME -i --type directory -H -E builds -E node_modules -E .git | fzf --no-multi)
   cd "$dir"
 }
 
