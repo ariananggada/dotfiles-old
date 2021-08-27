@@ -7,3 +7,95 @@ vicd()
     fi
     cd "$dst"
 }
+
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd() {
+    # tmp="$(mktemp)"
+    # cross compatibility for mac os x (Darwin) and Linux
+    tmp=$(mktemp 2>/dev/null || mktemp -t 'lfcd')
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp" >/dev/null
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+
+if [[ -t 0 && $- = *i* ]]; then
+  if  [[ "${OS}" == "Darwin" ]]; then
+    stty discard undef
+    bind '"\017":"lfcd\n"'
+  else
+    bind '"\C-o":"lfcd\n"'
+  fi
+fi
+
+
+ext() {
+  ext-all --exclude .git --exclude target --exclude "*.log"
+}
+
+ext-all() {
+  local name=$(basename $(pwd))
+  cd ..
+  tar -cvzf "$name.tgz" $* --exclude "$name.tgz" "$name"
+  cd -
+  mv ../"$name".tgz .
+}
+
+
+rg_vim() {
+  $EDITOR $(rg "$1" | sk | cut -d':' -f1)
+}
+
+rg_less() {
+  $EDITOR $(rg "$1" | sk | cut -d':' -f1)
+}
+
+# fh - repeat history
+fh() {
+  echo $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+}
+
+vf() { 
+  $EDITOR $(sk)
+}
+
+# search file inside code dir and open on $EDITOR(vim)
+vfc() { 
+  $EDITOR $(fd . code | sk) 
+}
+
+vd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
+      -print 2> /dev/null | sk --no-multi) &&
+  cd "$dir"
+}
+
+cdf() {
+   local file
+   local dir
+   file=$(sk -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
+
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | sk | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+# fzf <3 tmux:)
+tm() {
+  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+  if [ $1 ]; then
+    tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+  fi
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | sk --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+}
