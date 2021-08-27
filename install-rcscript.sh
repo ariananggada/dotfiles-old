@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if ! grep -q "if [ -f $HOME/.initrc ]" "$HOME/.bashrc"; then
+if ! grep -q "if [ -f \$HOME/.initrc ]" "~/.bashrc"; then
 
   cat >> $HOME/.bashrc <<-EOF
 
