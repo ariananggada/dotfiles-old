@@ -72,10 +72,17 @@ vfroot() {
   $EDITOR "$file"
 }
 
+# vd() {
+#   local dir
+#   dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
+#       -print 2> /dev/null | fzf --no-multi) &&
+#   cd "$dir"
+# }
+
+
 vd() {
   local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
-      -print 2> /dev/null | fzf --no-multi) &&
+  dir=$(fd . -i --type directory -H -E builds -E node_modules -E .git | fzf --no-multi)
   cd "$dir"
 }
 
