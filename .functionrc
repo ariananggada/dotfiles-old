@@ -92,6 +92,11 @@ vdroot() {
   cd "$dir"
 }
 
+
+vtree() {
+  fd . -i -H -E builds -E node_modules -E .git | as-tree
+}
+
 cdf() {
    local file
    local dir
