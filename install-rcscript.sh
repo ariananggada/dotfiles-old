@@ -8,11 +8,11 @@ else
 
 # custom init rc load
 if [ -f \$HOME/.initrc ]; then
-    . \$HOME/initrc
+    . \$HOME/.initrc
 fi
 
 if [ -f \$HOME/.functionrc ]; then
-    . \$HOME/functionrc
+    . \$HOME/.functionrc
 fi
 
 if [ -f \$HOME/.aliasrc ]; then
