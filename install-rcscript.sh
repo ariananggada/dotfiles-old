@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-if ! grep -q "if [ -f $HOME/.initrc ]" "$HOME/testrc"; then
+if ! grep -q "if [ -f $HOME/.initrc ]" "$HOME/.bashrc"; then
 
-  cat >> $HOME/testrc <<-EOF
+  cat >> $HOME/.bashrc <<-EOF
 
   # custom init rc load
   if [ -f \$HOME/.initrc ]; then
