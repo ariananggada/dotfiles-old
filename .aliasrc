@@ -23,7 +23,7 @@ fi
 
 # nvm alias
 if command -v "nvm"> /dev/null 2>&1; then
-  alias nvmup='nvm install node --reinstall-packages-from=node'
+  alias nvmup='nvm install --lts --reinstall-packages-from=node'
 fi
 
 # tmux alias
