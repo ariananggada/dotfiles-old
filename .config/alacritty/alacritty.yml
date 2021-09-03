@@ -28,19 +28,19 @@ scrolling:
 
 font:
   normal:
-    family: 'BlexMono Nerd Font'
-    style: Book
+    family: 'Consolas'
+    style: Regular
 
   bold:
-    family: 'BlexMono Nerd Font'
+    family: 'Consolas'
     style: Bold
 
   italic:
-    family: 'BlexMono Nerd Font'
+    family: 'Consolas'
     style: Italic
 
   # Point size
-  size: 10
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
