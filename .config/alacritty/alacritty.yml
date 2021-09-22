@@ -28,15 +28,15 @@ scrolling:
 
 font:
   normal:
-    family: 'Consolas'
+    family: 'Source Code Pro'
     style: Regular
 
   bold:
-    family: 'Consolas'
+    family: 'Source Code Pro'
     style: Bold
 
   italic:
-    family: 'Consolas'
+    family: 'Source Code Pro'
     style: Italic
 
   # Point size
