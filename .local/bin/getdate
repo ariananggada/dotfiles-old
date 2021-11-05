@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+TIME_STAMP=$(date +"%Y%m%d%H%M%S")
+echo "$TIME_STAMP"
