@@ -23,14 +23,15 @@ lfcd() {
 }
 
 
-if [[ -t 0 && $- = *i* ]]; then
-  if  [[ "${OS}" == "Darwin" ]]; then
-    stty discard undef
-    bind '"\017":"lfcd\n"'
-  else
-    bind '"\C-o":"lfcd\n"'
-  fi
-fi
+# # could produce error in larbs arch linux, should be commented
+# if [[ -t 0 && $- = *i* ]]; then
+#   if  [[ "${OS}" == "Darwin" ]]; then
+#     stty discard undef
+#     bind '"\017":"lfcd\n"'
+#   else
+#     bind '"\C-o":"lfcd\n"'
+#   fi
+# fi
 
 
 ext() {

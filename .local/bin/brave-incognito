@@ -1,0 +1,4 @@
+#!/bin/sh
+
+command -v brave > /dev/null 2>&1 &&
+  brave -incognito
