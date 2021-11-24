@@ -179,17 +179,14 @@ endif
 filetype plugin indent on
 " }}}
 
-" " Settings {{{
-" if $OS == 'Darwin'
-"   set clipboard=unnamed
-" elseif $OS == 'Windows_NT'
-"   set clipboard=unnamed
-" else
-"   set clipboard=unnamedplus
-" endif
-
-" " for neovim
-set clipboard+=unnamedplus
+" Settings {{{
+if $OS == 'Darwin'
+  set clipboard=unnamed
+elseif $OS == 'Windows_NT'
+  set clipboard=unnamed
+else
+  set clipboard=unnamedplus
+endif
 set pastetoggle=<F2>
 set encoding=utf-8
 set number
