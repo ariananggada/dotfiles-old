@@ -415,8 +415,9 @@ cnoreabbrev vv visual
 nnoremap ,g :g//#<Left><Left>
 " Faster project-based editing
 nnoremap ,e :e **/*<C-z><S-Tab>
-" Join yanked text on a yank (needed for terminal mode copies)
-vnoremap yy y<CR>:let @"=substitute(@", '\n', '', 'g')<CR>:call yank#Osc52Yank()<CR>
+
+" " Join yanked text on a yank (needed for terminal mode copies)
+" vnoremap yy y<CR>:let @"=substitute(@", '\n', '', 'g')<CR>:call yank#Osc52Yank()<CR>
 
 " " Capture ex-command output to default register
 " nnoremap ,p :let @"=substitute(execute('pwd'), '\n', '', 'g')<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
@@ -964,19 +965,19 @@ function! PreviewPresentation()
     elseif l:uname =~ "Darwin"
 
       if l:extension ==? "tex"
-        " try
-        "   silent execute "!zathura ". l:file_name_path. ".pdf"."&" | redraw!
-        " catch
-        "   silent execute "!open -a Preview ". l:file_name_path. ".pdf"
-        " endtry
-        silent execute "!open -a Skim ". l:file_name_path. ".presentation.pdf"
+        try
+          silent execute "!zathura ". l:file_name_path. ".pdf"."&" | redraw!
+        catch
+          silent execute "!open -a Preview ". l:file_name_path. ".pdf"
+        endtry
+        " silent execute "!open -a Skim ". l:file_name_path. ".presentation.pdf"
       else
-        " try
-        "   silent execute "!zathura ~/tmp/op.pdf &" | redraw!
-        " catch
-        "   silent execute "!open -a Preview ". l:file_name_path. ".presentation.pdf"
-        " endtry
-        silent execute "!open -a Skim ". l:file_name_path. ".presentation.pdf"
+        try
+          silent execute "!zathura ~/tmp/op.pdf &" | redraw!
+        catch
+          silent execute "!open -a Preview ". l:file_name_path. ".presentation.pdf"
+        endtry
+        " silent execute "!open -a Skim ". l:file_name_path. ".presentation.pdf"
       endif
 
     else
