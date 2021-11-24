@@ -26,7 +26,6 @@ silent! if plug#begin('~/.vim/plugged')
 
   Plug 'k-takata/minpac', {'type': 'opt'}
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-eunuch'
@@ -733,11 +732,16 @@ augroup FileMarks
   autocmd BufLeave *.bzl  normal! mB
 augroup END
 
-augroup VimCommentary
-  autocmd!
-  autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal commentstring={/*\ %s\ */}
-  autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-augroup END
+
+
+" " disable this, because conflicts with coc comment
+" augroup VimCommentary
+"   autocmd!
+"   autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal commentstring={/*\ %s\ */}
+"   autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+" augroup END
+
+
 
 " augroup general_docs_settings
 "   autocmd!
