@@ -35,6 +35,12 @@ silent! if plug#begin('~/.vim/plugged')
 
   Plug 'tpope/vim-repeat'
 
+  Plug 'AndrewRadev/splitjoin.vim'
+  let g:splitjoin_split_mapping = ''
+  let g:splitjoin_join_mapping = ''
+  nnoremap gss :SplitjoinSplit<cr>
+  nnoremap gsj :SplitjoinJoin<cr>
+
   Plug 'AndrewRadev/linediff.vim'
   Plug 'mbbill/undotree'
 
@@ -118,6 +124,8 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
   let NERDTreeShowHidden=1
   let NERDTreeIgnore=['\.DS_Store$', '\.git$']
+
+  Plug 'justinmk/vim-gtfo'
 
   if v:version >= 800
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -558,7 +566,7 @@ try
         \ 'coc-yaml'
         \ ]
 
-  command! -nargs=0 Prettier :CocCommand prettier.formatFile
+    command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
   function! s:check_back_space() abort
     let col = col('.') - 1
@@ -574,21 +582,40 @@ try
         \ coc#refresh()
   inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-  " Use <cr> to confirm completion, `<C-g>u` means break undo chain at
-  " current position. Coc only does snippet and additional edit on
-  " confirm. <cr> could be remapped by other vim plugin, try `:verbose
-  " imap <CR>`.
-  if exists('*complete_info')
-    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-  else
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-  endif
+  " " Use <cr> to confirm completion, `<C-g>u` means break undo chain at
+  " " current position. Coc only does snippet and additional edit on
+  " " confirm. <cr> could be remapped by other vim plugin, try `:verbose
+  " " imap <CR>`.
+  " if exists('*complete_info')
+  "   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+  " else
+  "   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  " endif
+
+
+
+  " Make <CR> auto-select the first completion item and notify coc.nvim to
+  " format on enter, <cr> could be remapped by other vim plugin
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
+  " function! s:show_documentation()
+  "   if (index(['vim', 'help'], &filetype) >= 0)
+  "     execute 'h' expand('<cword>')
+  "   else
+  "     call CocAction('doHover')
+  "   endif
+  " endfunction
+
 
   function! s:show_documentation()
-    if (index(['vim', 'help'], &filetype) >= 0)
-      execute 'h' expand('<cword>')
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+      call CocActionAsync('doHover')
     else
-      call CocAction('doHover')
+      execute '!' . &keywordprg . " " . expand('<cword>')
     endif
   endfunction
 
