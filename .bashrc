@@ -308,8 +308,11 @@ tm() {
 [ -f ~/z/z.sh ] && source ~/z/z.sh
 [ -f /opt/local/share/fzf/shell/key-bindings.bash ] && source /opt/local/share/fzf/shell/key-bindings.bash
 
-
+# fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
+[ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
+
 
 # custom init rc load
 if [ -f $HOME/.initrc ]; then
