@@ -55,11 +55,13 @@ if [[ "${OS}" == "Linux" ]] ||
       pidof -s dwm >/dev/null 2>&1 && export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
     fi
 
-
     # fix java apps in dwm
     export _JAVA_AWT_WM_NONREPARENTING=1    # Fix for Java applications in dwm
     export _JAVA_OPTIONS='-Dswing.aatext=TRUE -Dawt.useSystemAAFontSettings=on'
   fi
+
+  # zsh
+  export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
   # cvs
   export CVSROOT=$HOME/cvsroot

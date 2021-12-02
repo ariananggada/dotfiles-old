@@ -121,6 +121,7 @@ silent! if plug#begin('~/.vim/plugged')
 
   Plug 'airblade/vim-gitgutter'
 
+  " comment this, using lf or vifm
   Plug 'preservim/nerdtree'
   let NERDTreeShowHidden=1
   let NERDTreeIgnore=['\.DS_Store$', '\.git$']
@@ -177,6 +178,17 @@ silent! if plug#begin('~/.vim/plugged')
   " " rainbow bracket / parantheses
   " Plug 'luochen1990/rainbow'
   " let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+  " vimsence (discord)
+  Plug 'vimsence/vimsence'
+  let g:vimsence_client_id = '439476230543245312'
+  let g:vimsence_small_text = 'Vim'
+  let g:vimsence_small_image = 'Vim'
+  let g:vimsence_editing_details = 'Editing: {}'
+  let g:vimsence_editing_state = 'Working on: {}'
+  let g:vimsence_file_explorer_text = 'In NERDTree'
+  let g:vimsence_file_explorer_details = 'Looking for files'
+
 
   call plug#end()
 endif
@@ -761,12 +773,12 @@ augroup END
 
 
 
-" " disable this, because conflicts with coc comment
-" augroup VimCommentary
-"   autocmd!
-"   autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal commentstring={/*\ %s\ */}
-"   autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-" augroup END
+" disable this, because conflicts with coc comment
+augroup VimCommentary
+  autocmd!
+  " autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal commentstring={/*\ %s\ */}
+  autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+augroup END
 
 
 
