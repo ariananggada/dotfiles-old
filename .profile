@@ -49,7 +49,7 @@ if [[ "${OS}" == "Linux" ]] ||
 
 
   if [[ "${OS}" != "Darwin" ]]; then
-    export TERMINAL=st
+    # export TERMINAL=st
     export BROWSER=firefox
     if [[ "${OS}" == "Linux" ]]; then
       pidof -s dwm >/dev/null 2>&1 && export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"

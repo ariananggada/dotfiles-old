@@ -208,7 +208,7 @@ filetype plugin indent on
 " endif
 
 " " for neovim
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 set pastetoggle=<F2>
 set encoding=utf-8
 set number
