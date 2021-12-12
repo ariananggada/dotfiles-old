@@ -299,14 +299,36 @@ fh() {
 
 vf() { $EDITOR $(sk)}
 
+vfroot() { 
+  local file
+  file=$(fd . $HOME -i --type file -H -E builds -E node_modules -E .git | fzf --no-multi)
+  $EDITOR "$file"
+}
+
 # search file inside code dir and open on $EDITOR(vim)
 vfc() { $EDITOR $(fd . code | sk) }
 
+# vd() {
+#   local dir
+#   dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
+#       -print 2> /dev/null | sk --no-multi) &&
+#   cd "$dir"
+# }
+
 vd() {
   local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
-      -print 2> /dev/null | sk --no-multi) &&
+  dir=$(fd . -i --type directory -H -E builds -E node_modules -E .git | fzf --no-multi)
   cd "$dir"
+}
+
+vdroot() {
+  local dir
+  dir=$(fd . $HOME -i --type directory -H -E builds -E node_modules -E .git | fzf --no-multi)
+  cd "$dir"
+}
+
+vtree() {
+  fd . -i -H -E builds -E node_modules -E .git | as-tree
 }
 
 cdf() {
