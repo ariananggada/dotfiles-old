@@ -88,7 +88,7 @@ if [[ "${OS}" == "Linux" ]] ||
 
   # rust
   if ! command -v cargo &> /dev/null; then
-    source "$HOME/.cargo/env"
+    . "$HOME/.cargo/env"
   fi
   
   # golang
