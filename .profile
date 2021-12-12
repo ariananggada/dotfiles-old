@@ -60,8 +60,11 @@ if [[ "${OS}" == "Linux" ]] ||
     export _JAVA_OPTIONS='-Dswing.aatext=TRUE -Dawt.useSystemAAFontSettings=on'
   fi
 
+  # # zsh
+  # export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+
   # zsh
-  export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+  export ZDOTDIR="$HOME"
 
   # cvs
   export CVSROOT=$HOME/cvsroot
