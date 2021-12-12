@@ -86,7 +86,6 @@ if [[ "${OS}" == "Linux" ]] ||
     export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
   fi
 
-
   # rust
   if ! command -v cargo &> /dev/null; then
     source "$HOME/.cargo/env"
