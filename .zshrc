@@ -209,10 +209,19 @@ alias xl="exa --group-directories-first --classify --git"
 alias xll="xl -lah"
 alias skvim='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && nvim "$x" || true }; f'
 export SKIM_DEFAULT_OPTS='--color "preview-bg:237"'
+if [ -e "/opt/local/share/skim/shell" ]; then
+  source /opt/local/share/skim/shell
+fi
 
 # fzf
 export FZF_DEFAULT_OPTS='--color "preview-bg:237"'
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
+if [ -e  "/opt/local/share/fzf/shell/key-bindings.zsh" ]; then
+  source /opt/local/share/fzf/shell/key-bindings.zsh
+fi
+if [ -e "/opt/local/share/fzf/shell/complection.zsh" ]; then
+  source /opt/local/share/fzf/shell/completion.zsh
+fi
 
 if command -v fd > /dev/null; then
   export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
