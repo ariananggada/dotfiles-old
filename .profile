@@ -109,7 +109,8 @@ if [[ "${OS}" == "Linux" ]] ||
 
   # java openjdk11
   if [[ "${OS}" == "Darwin" ]]; then
-    JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home
+    # JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11/Contents/Home
+    JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11-temurin/Contents/Home
   fi
 
   # show hidden dir
