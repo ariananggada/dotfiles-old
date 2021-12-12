@@ -369,6 +369,8 @@ tm() {
 
 [ -f ~/zsh-z/zsh-z.plugin.zsh ] && source ~/zsh-z/zsh-z.plugin.zsh
 
+[ -f /opt/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # my audio related stuff
 # [ -f ~/.sox_tricks ] && source ~/.sox_tricks
 
