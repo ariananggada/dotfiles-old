@@ -33,6 +33,14 @@ lfcd() {
 #   fi
 # fi
 
+bindkey -s '^o' 'lfcd\n'
+# bindkey -s '^a' 'bc -l\n'
+bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+bindkey '^[[P' delete-char
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
 
 ext() {
   ext-all --exclude .git --exclude target --exclude "*.log"
@@ -72,6 +80,9 @@ vfroot() {
   file=$(fd . $HOME -i --type file -H -E builds -E node_modules -E .git | fzf --no-multi)
   $EDITOR "$file"
 }
+
+# search file inside code dir and open on $EDITOR(vim)
+vfc() { $EDITOR $(fd . code | sk) }
 
 # vd() {
 #   local dir
@@ -122,3 +133,40 @@ tm() {
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | sk --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
+
+notify() {
+  if [ -z "$1" ]
+  then
+    echo "usage: $0 [bin_name]"
+  else
+    result=$( { $@ } 2>&1 )
+    ding && osascript -e "display notification \"$result\" with title \"$1\""
+  fi
+}
+
+countdown() {
+  if [[ -z "$1" ]]; then
+    echo "usage: countdown [time] (2500 are 25 minutes, 300 are 5 minutes)"
+    echo "example: countdown 2500 300"
+  elif [[ -z "$2" ]]; then
+    echo "usage: countdown [time] (2500 are 25 minutes, 300 are 5 minutes)"
+    echo "example: countdown 2500 300"
+  else
+    while [ true ]
+    do
+
+      # notify "countdown" "countdown start" && termdown.py $1 && reset;
+      # notify "countdown" "rest for five minutes" && reset && echo "rest for 5 minutes" && sleep $2;
+
+      termdown.py --title "work" $1 && reset && clear;
+      termdown.py --title "rest" $2 && reset && clear;
+    done
+  fi
+}
+
+if [ "$PLATFORM" = 'Darwin' ]; then
+  alias tac='tail -r'
+  o() {
+    open --reveal "${1:-.}"
+  }
+fi

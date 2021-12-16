@@ -19,6 +19,7 @@ if command -v "git"> /dev/null 2>&1; then
   alias gpl="git pull"
   alias gfe="git fetch"
   alias mgpl='find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;'
+  alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 fi
 
 # nvm alias
@@ -72,3 +73,30 @@ fi
 
 # ssh serveraliveinterval
 alias ssh='ssh -o "ServerAliveInterval 60"'
+
+# universal UNIX clipboard and open command
+if  [[ "${OS}" == "Linux" ]] ||
+    [[ "${OS}" == "OpenBSD" ]] ||
+    [[ "${OS}" == "FreeBSD" ]] ; then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+  alias open='xdg-open'
+
+elif [[ "${OS}" == "MINGW*" ]]; then
+  alias pbcopy='clip'
+  alias open='cmd /c start'
+
+elif [[ "${OS}" == "CYGWIN*" ]]; then
+  alias pbcopy='clip'
+fi
+
+# # add checking if exa exists
+alias xl="exa --group-directories-first --classify --git"
+alias xll="xl -lah"
+
+## add checking if skim exists
+alias skvim='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && nvim "$x" || true }; f'
+export SKIM_DEFAULT_OPTS='--color "preview-bg:237"'
+if [ -e "/opt/local/share/skim/shell" ]; then
+  source /opt/local/share/skim/shell
+fi

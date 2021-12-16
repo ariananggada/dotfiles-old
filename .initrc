@@ -19,11 +19,38 @@ then
   export VIMCONFIG=$HOME/.vim
 fi
 
+# dumb terminal
+if [[ "$TERM" == "dumb" ]]
+then
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
+    PS1='$ '
+fi
 
 # scratch file
 if [ -d "$HOME/tmp" ]; then
   SCRATCH_FILE="$HOME"/tmp/scratch.md
   if [ -e "$HOME/tmp/scratch.md" ]; then
+    alias scratch='$EDITOR "$SCRATCH_FILE"'
+  else
+    touch "$SCRATCH_FILE"
+  fi
+fi
+
+# note taking zettel
+export NOTE_PATH="$HOME/wiki/note"
+if [[ -L "$NOTE_PATH" && -d "$NOTE_PATH" ]]; then
+  # # moved to vimrc func
+  # export NOTE_PATH_SYMLINK=$(readlink $NOTE_PATH)
+fi
+
+# scratch file
+if [ -d "$HOME/wiki" ]; then
+  SCRATCH_FILE="$HOME"/wiki/scratch.md
+  if [ -e "$HOME/wiki/scratch.md" ]; then
     alias scratch='$EDITOR "$SCRATCH_FILE"'
   else
     touch "$SCRATCH_FILE"
@@ -48,4 +75,14 @@ if command -v fd > /dev/null; then
   export FZF_CTRL_T_COMMAND='fd --type f --type d --hidden --follow --exclude .git --exclude node_modules'
 fi
 
+# nomachine bin setup
+# this detection script are for linux platform
+if [[ -d "/usr/NX" ]]; then
+  export PATH="$PATH:/usr/NX/bin"
+fi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/zsh-z/zsh-z.plugin.zsh ] && source ~/zsh-z/zsh-z.plugin.zsh
+
+[ -f /opt/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
