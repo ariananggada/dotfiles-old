@@ -203,7 +203,7 @@ if command -v "docker" > /dev/null 2>&1; then
   # fi
 fi
 
-# # kubectl
+# # kubernetes kubectl
 if command -v "kubectl" > /dev/null 2>&1; then
   alias kgn='kubectl get namespace -o wide'
   alias kgp='kubectl get pods -o wide'
