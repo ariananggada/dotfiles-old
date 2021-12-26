@@ -203,6 +203,13 @@ if command -v "docker" > /dev/null 2>&1; then
   # fi
 fi
 
+# # kubectl
+if command -v "kubectl" > /dev/null 2>&1; then
+  alias kgn='kubectl get namespace -o wide'
+  alias kgp='kubectl get pods -o wide'
+  alias kgs='kubectl get svc -o wide'
+fi
+
 # skim
 export PATH="$PATH:$HOME/.skim/bin"
 alias xl="exa --group-directories-first --classify --git"
