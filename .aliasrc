@@ -73,8 +73,8 @@ fi
 # # kubernetes kubectl
 if command -v "kubectl" > /dev/null 2>&1; then
   alias kgn='kubectl get namespace -o wide'
-  alias kgp='kubectl get pods -o wide'
-  alias kgs='kubectl get svc -o wide'
+  alias kgp='kubectl get pods -A -o wide'
+  alias kgs='kubectl get svc -A -o wide'
 fi
 
 # ssh serveraliveinterval
