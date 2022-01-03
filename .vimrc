@@ -944,6 +944,7 @@ function! PreviewDocs()
 
     if l:uname =~ "Linux"
       silent execute "!zathura ". l:file_name_path. ".pdf &"
+      redraw!
 
     elseif l:uname =~ "Darwin"
 
@@ -954,6 +955,7 @@ function! PreviewDocs()
         "   silent execute "!open -a Preview ". l:file_name_path. ".pdf"
         " endtry
         silent execute "!open -a Skim ". l:file_name_path. ".pdf"
+        redraw!
       else
         " try
         "   silent execute "!zathura ~/tmp/op.pdf &" | redraw!
@@ -961,16 +963,20 @@ function! PreviewDocs()
         "   silent execute "!open -a Preview ". l:file_name_path. ".pdf"
         " endtry
         silent execute "!open -a Skim ". l:file_name_path. ".pdf"
+        redraw!
       endif
 
     else
       " " echo "PreviewDocs: OS not detected"
       " this is for windows
       silent execute "!SumatraPDF.exe ". l:file_name_path. ".pdf"
+      redraw!
     endif
 
   else
     echo "buffer empty"
+    redraw!
+
   endif
 
 endfunction
