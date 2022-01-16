@@ -113,6 +113,11 @@ if [[ "${OS}" == "Linux" ]] ||
     JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk11-temurin/Contents/Home
   fi
 
+  # doom emacs
+  if [[ -d "$HOME/.emacs.d/bin" ]]; then
+    export PATH="$PATH:$HOME/.emacs.d/bin"
+  fi
+
   # show hidden dir
   if [[ "${OS}" == "Darwin" ]]; then
     alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
