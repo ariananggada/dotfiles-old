@@ -576,6 +576,7 @@ try
         \ 'coc-css',
         \ 'coc-pyright',
         \ 'coc-rust-analyzer',
+        \ 'coc-go',
         \ 'coc-vimtex',
         \ 'coc-prettier',
         \ 'coc-yaml'

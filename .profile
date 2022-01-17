@@ -98,13 +98,15 @@ if [[ "${OS}" == "Linux" ]] ||
   if [[ "${OS}" != "Darwin" ]]; then
     export PATH=$PATH:/usr/local/go/bin
     export GOPATH="$(go env GOPATH)"
-    export PATH="$PATH:$(go env GOPATH)/bin"
+    export GOBIN="$GOPATH/bin"
+    export PATH="$PATH:$GOBIN/bin"
   fi
 
 
   if [[ "${OS}" == "Darwin" ]]; then
-    export PATH="$PATH:$(go env GOPATH)/bin"
     export GOPATH="$(go env GOPATH)"
+    export GOBIN="$GOPATH/bin"
+    export PATH="$PATH:$GOBIN/bin"
   fi
 
   # java openjdk11
