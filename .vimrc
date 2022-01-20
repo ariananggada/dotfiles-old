@@ -214,7 +214,8 @@ set encoding=utf-8
 set number
 set textwidth=0
 if exists('&colorcolumn')
-  set colorcolumn=72,80
+  " set colorcolumn=72,80
+  set colorcolumn=80
 endif
 set backspace=indent,eol,start
 set list
