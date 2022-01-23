@@ -928,7 +928,7 @@ function! BuildDocs()
     " silent execute "!pandoc -f latex -t latex % -o ". l:file_name_path. ".pdf"
     silent execute "!pdflatex %"
   elseif l:extension ==? "md"
-    silent execute "!pandoc % -s -o ". l:file_name_path. ".pdf"
+    silent execute "!pandoc % -s -o ". l:file_name_path. ".pdf" . " --number-sections --toc --toc-depth=6 -V block-headings"
   else
     echo "only [.ms .tex .md] are supported now"
   endif
