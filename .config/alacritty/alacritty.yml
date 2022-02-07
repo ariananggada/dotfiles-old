@@ -28,15 +28,15 @@ scrolling:
 
 font:
   normal:
-    family: 'Iosevka Nerd Font'
+    family: 'MesloLGS NF'
     style: Regular
 
   bold:
-    family: 'Iosevka Nerd Font'
+    family: 'MesloLGS NF'
     style: Bold
 
   italic:
-    family: 'Iosevka Nerd Font'
+    family: 'MesloLGS NF'
     style: Italic
 
   # Point size
