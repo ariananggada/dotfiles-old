@@ -315,10 +315,19 @@ fh() {
 
 vf() { $EDITOR $(sk)}
 
+
 vfroot() { 
   local file
   file=$(fd . $HOME -i --type file -H -E builds -E node_modules -E .git | fzf --no-multi)
   $EDITOR "$file"
+}
+
+vb() { bat $(sk) }
+
+vbroot() { 
+  local file
+  file=$(fd . $HOME -i --type file -H -E builds -E node_modules -E .git | fzf --no-multi)
+  bat "$file"
 }
 
 # search file inside code dir and open on $EDITOR(vim)
