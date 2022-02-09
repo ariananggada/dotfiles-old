@@ -74,8 +74,8 @@ silent! if plug#begin('~/.vim/plugged')
       colorscheme default
       set background=light
       colorscheme pencil
-      silent! execute 'Goyo 80'
-      set wrap
+      " silent! execute 'Goyo 80'
+      " set wrap
     endif
   endfunction
   command! -nargs=0 PencilLight silent! :call PencilLight() | redraw!
@@ -341,7 +341,8 @@ if has('gui_running')
   set background=dark
   try
     if has('mac')
-      set guifont=MesloLGSNerdFontComplete-Regular:h12
+      set guifont=DejaVuSansMonoNerdFontComplete-Book:h12
+      " set guifont=MesloLGSNerdFontComplete-Regular:h12
       " set guifont=IosevkaNerdFontComplete-Term:h12
       " set guifont=SourceCodePro-Regular:h12
       " set guifont=Consolas:h11
@@ -349,7 +350,8 @@ if has('gui_running')
       " set guifont=Inconsolata:h14
       " set guifont=Monaco:h11
     elseif has('win32')
-      set guifont=MesloLGS_Nerd_Font:h12:cANSI:qDRAFT
+      set guifont=DejaVuSansMono_Nerd_Font:h12:cANSI:qDRAFT
+      " set guifont=MesloLGS_Nerd_Font:h12:cANSI:qDRAFT
       " set guifont=Iosevka_Nerd_Font:h12:cANSI:qDRAFT
       " set guifont=Source_Code_Pro:h12:cANSI:qDRAFT
       " set guifont=Consolas:h11:cANSI:qDRAFT
@@ -359,7 +361,8 @@ if has('gui_running')
       " set guifont=Cousine:h10:cANSI:qDRAFT
       " set guifont=Roboto_Mono:h10:cANSI:qDRAFT
     else
-      set guifont=MesloLGS\ Nerd\ Font\ 10
+      set guifont=DejaVuSansMono\ Nerd\ Font\ 10
+      " set guifont=MesloLGS\ Nerd\ Font\ 10
       " set guifont=Iosevka\ Nerd\ Font\ 10
       " set guifont=Source\ Code\ Pro\ 10
       " set guifont=Consolas\ 11
