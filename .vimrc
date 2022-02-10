@@ -341,7 +341,8 @@ if has('gui_running')
   set background=dark
   try
     if has('mac')
-      set guifont=IosevkaNerdFontComplete-Term:h12
+      set guifont=InconsolataNerdFontComplete-Regular:h14
+      " set guifont=IosevkaNerdFontComplete-Term:h12
       " set guifont=DejaVuSansMonoNerdFontComplete-Book:h12
       " set guifont=MesloLGSNerdFontComplete-Regular:h12
       " set guifont=SourceCodePro-Regular:h12
@@ -350,7 +351,8 @@ if has('gui_running')
       " set guifont=Inconsolata:h14
       " set guifont=Monaco:h11
     elseif has('win32')
-      set guifont=Iosevka_Nerd_Font:h12:cANSI:qDRAFT
+      set guifont=Inconsolata_Nerd_Font:h12:cANSI:qDRAFT
+      " set guifont=Iosevka_Nerd_Font:h12:cANSI:qDRAFT
       " set guifont=DejaVuSansMono_Nerd_Font:h12:cANSI:qDRAFT
       " set guifont=MesloLGS_Nerd_Font:h12:cANSI:qDRAFT
       " set guifont=Source_Code_Pro:h12:cANSI:qDRAFT
@@ -361,7 +363,8 @@ if has('gui_running')
       " set guifont=Cousine:h10:cANSI:qDRAFT
       " set guifont=Roboto_Mono:h10:cANSI:qDRAFT
     else
-      set guifont=Iosevka\ Nerd\ Font\ 10
+      set guifont=Inconsolata\ Nerd\ Font\ 12
+      " set guifont=Iosevka\ Nerd\ Font\ 10
       " set guifont=DejaVuSansMono\ Nerd\ Font\ 10
       " set guifont=MesloLGS\ Nerd\ Font\ 10
       " set guifont=Source\ Code\ Pro\ 10
