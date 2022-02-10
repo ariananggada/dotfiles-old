@@ -28,19 +28,19 @@ scrolling:
 
 font:
   normal:
-    family: 'Inconsolata Nerd Font'
+    family: 'MesloLGS Nerd Font'
     style: Regular
 
   bold:
-    family: 'Inconsolata Nerd Font'
+    family: 'MesloLGS Nerd Font'
     style: Bold
 
   italic:
-    family: 'Inconsolata Nerd Font'
+    family: 'MesloLGS Nerd Font'
     style: Italic
 
   # Point size
-  size: 14
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
