@@ -28,15 +28,15 @@ scrolling:
 
 font:
   normal:
-    family: 'DejaVuSansMono Nerd Font'
-    style: Book
+    family: 'Iosevka Nerd Font'
+    style: Regular
 
   bold:
-    family: 'DejaVuSansMono Nerd Font'
+    family: 'Iosevka Nerd Font'
     style: Bold
 
   italic:
-    family: 'DejaVuSansMono Nerd Font'
+    family: 'Iosevka Nerd Font'
     style: Italic
 
   # Point size
