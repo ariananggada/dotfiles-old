@@ -13,6 +13,7 @@ let $MYVIMDIR="~/.vim"
 " Settings {{{
 " set shell=/usr/bin/zsh            " Prefer zsh for shell-related tasks
 set number
+set colorcolumn=80
 set grepprg=LC_ALL=C\ grep\ -rns  " Faster ASCII-based grep
 set expandtab                     " Prefer spaces over tabs
 set hidden                        " Prefer hiding over unloading buffers
