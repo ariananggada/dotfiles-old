@@ -9,7 +9,7 @@ endif
 if has('win32') || has ('win64')
   let $VIMHOME = $VIM."/vimfiles"
 
-  let g:python3_host_prog = "C:\ProgramData\Anaconda3\python.exe"
+  let g:python3_host_prog = 'C:/ProgramData/Anaconda3/python.exe'
   set pythonthreedll=C:/ProgramData/Anaconda3/python39.dll
   set pythonthreehome=C:/ProgramData/Anaconda3
 else
@@ -350,7 +350,7 @@ if has('gui_running')
       " set guifont=Inconsolata:h14
       " set guifont=Monaco:h11
     elseif has('win32')
-      set guifont=Cousine:h11:cANSI:qDRAFT
+      set guifont=Cousine:h10:cANSI:qDRAFT
       " set guifont=Source_Code_Pro:h12:cANSI:qDRAFT
       " set guifont=Consolas:h11:cANSI:qDRAFT
       " set guifont=Operator_Mono:h14:cANSI:qDRAFT
