@@ -8,7 +8,7 @@ endif
 
 if has('win32') || has ('win64')
   let $VIMHOME = $VIM."/vimfiles"
-  set pythonthreedll=C:/ProgramData/Anaconda3/python38.dll
+  set pythonthreedll=C:/ProgramData/Anaconda3/python39.dll
   set pythonthreehome=C:/ProgramData/Anaconda3
 else
   let $VIMHOME = $HOME."/.vim"
