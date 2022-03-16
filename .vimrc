@@ -8,6 +8,8 @@ endif
 
 if has('win32') || has ('win64')
   let $VIMHOME = $VIM."/vimfiles"
+
+  let g:python3_host_prog = "C:\ProgramData\Anaconda3\python.exe"
   set pythonthreedll=C:/ProgramData/Anaconda3/python39.dll
   set pythonthreehome=C:/ProgramData/Anaconda3
 else
