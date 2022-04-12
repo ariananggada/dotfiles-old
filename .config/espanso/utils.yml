@@ -208,3 +208,16 @@ matches:
 #cf creates a code fence - enclosed three `'s
   - trigger: ":cf"
     replace: "```\n$|$\n```"
+
+
+#me's (my name)
+  - trigger: ":me"
+    replace: "Arian Anggada Oemar"
+
+#me's personal email
+  - trigger: ":emailme"
+    replace: "arian.anggada@gmail.com"
+
+#me's office email
+  - trigger: ":emailofficeme"
+    replace: "arian.anggada@devoteam.com"
