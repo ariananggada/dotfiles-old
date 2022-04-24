@@ -68,7 +68,7 @@ silent! if plug#begin('~/.vim/plugged')
   function! PencilLight()
     if g:colors_name == 'pencil'
       colorscheme default
-      set background=dark
+      set background=light
       colorscheme gruvbox
       silent! execute 'Goyo!'
       set nowrap
@@ -86,13 +86,13 @@ silent! if plug#begin('~/.vim/plugged')
   function! PencilDark()
     if g:colors_name == 'pencil'
       colorscheme default
-      set background=dark
+      set background=light
       colorscheme gruvbox
       silent! execute 'Goyo!'
       set nowrap
     else
       colorscheme default
-      set background=dark
+      set background=light
       colorscheme pencil
       execute 'Goyo 80'
       set wrap
@@ -340,7 +340,7 @@ endif
 syntax enable
 if has('gui_running')
   set t_Co=256
-  set background=dark
+  set background=light
   try
     if has('mac')
       set guifont=Cousine:h11
@@ -374,7 +374,7 @@ if has('gui_running')
     redraw!
   endtry
 else
-  set background=dark
+  set background=light
   try
     let g:gruvbox_contrast_dark="soft"
     colorscheme gruvbox
