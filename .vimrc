@@ -46,9 +46,10 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'AndrewRadev/linediff.vim'
   Plug 'mbbill/undotree'
 
-  " " indentline cause conceallevel to 2 and hide json quotes, disable it for
-  " " now
-  " Plug 'Yggdroot/indentLine'
+  Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
+    autocmd! User indentLine doautocmd indentLine Syntax
+    let g:indentLine_color_term = 239
+    let g:indentLine_color_gui = '#616161'
 
   Plug 'jiangmiao/auto-pairs'
 
@@ -68,7 +69,7 @@ silent! if plug#begin('~/.vim/plugged')
   function! PencilLight()
     if g:colors_name == 'pencil'
       colorscheme default
-      set background=light
+      set background=dark
       colorscheme gruvbox
       silent! execute 'Goyo!'
       set nowrap
@@ -76,8 +77,8 @@ silent! if plug#begin('~/.vim/plugged')
       colorscheme default
       set background=light
       colorscheme pencil
-      " silent! execute 'Goyo 80'
-      " set wrap
+      silent! execute 'Goyo 80'
+      set wrap
     endif
   endfunction
   command! -nargs=0 PencilLight silent! :call PencilLight() | redraw!
@@ -86,7 +87,7 @@ silent! if plug#begin('~/.vim/plugged')
   function! PencilDark()
     if g:colors_name == 'pencil'
       colorscheme default
-      set background=light
+      set background=dark
       colorscheme gruvbox
       silent! execute 'Goyo!'
       set nowrap
@@ -181,15 +182,19 @@ silent! if plug#begin('~/.vim/plugged')
   " Plug 'luochen1990/rainbow'
   " let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
-  " vimsence (discord)
-  Plug 'vimsence/vimsence'
-  let g:vimsence_client_id = '439476230543245312'
-  let g:vimsence_small_text = 'Vim'
-  let g:vimsence_small_image = 'Vim'
-  let g:vimsence_editing_details = 'Editing: {}'
-  let g:vimsence_editing_state = 'Working on: {}'
-  let g:vimsence_file_explorer_text = 'In NERDTree'
-  let g:vimsence_file_explorer_details = 'Looking for files'
+  " " vimsence (discord)
+  " Plug 'vimsence/vimsence'
+  " let g:vimsence_client_id = '439476230543245312'
+  " let g:vimsence_small_text = 'Vim'
+  " let g:vimsence_small_image = 'Vim'
+  " let g:vimsence_editing_details = 'Editing: {}'
+  " let g:vimsence_editing_state = 'Working on: {}'
+  " let g:vimsence_file_explorer_text = 'In NERDTree'
+  " let g:vimsence_file_explorer_details = 'Looking for files'
+
+  if has('nvim')
+    Plug 'github/copilot.vim'
+  endif
 
 
   call plug#end()
@@ -340,7 +345,7 @@ endif
 syntax enable
 if has('gui_running')
   set t_Co=256
-  set background=light
+  set background=dark
   try
     if has('mac')
       set guifont=Cousine:h11
@@ -374,7 +379,7 @@ if has('gui_running')
     redraw!
   endtry
 else
-  set background=light
+  set background=dark
   try
     let g:gruvbox_contrast_dark="soft"
     colorscheme gruvbox
@@ -489,7 +494,13 @@ nnoremap ,a :args *
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
 nnoremap <Leader>s :SC<CR>
-nnoremap <Leader>b :buffer *
+" "without fzf
+" nnoremap <Leader>b :buffer *
+
+" "with fzf
+nnoremap <Leader>b :Buffers<CR>
+
+
 
 " quickfix windows
 nnoremap ,c :copen<CR>
@@ -504,7 +515,8 @@ nnoremap ]<Space> o<ESC>k
 " Tabs navigation
 nnoremap ]t :tabn<CR>
 nnoremap [t :tabp<CR>
-nnoremap <Leader>t :tabnew<CR>
+" nnoremap <Leader>t :tabnew<CR>
+nnoremap <Leader>t :TagbarToggle<CR>
 
 " read file at current cursor position
 nnoremap <Leader>r :read <cfile><CR>
@@ -1228,3 +1240,4 @@ catch
 endtry
 " }}}
 " }
+

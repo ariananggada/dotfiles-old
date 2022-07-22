@@ -5,7 +5,8 @@ alias ll='ls -lah'
 alias llt='ls -laht'
 alias l='ls -aF'
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --exclude-dir=node_modules --color=auto'
-alias clr='reset;tmux clear-history'
+alias clr='clear;reset;tmux clear-history'
+alias ..='cd ..'
 
 # git alias
 if command -v "git"> /dev/null 2>&1; then
@@ -20,6 +21,8 @@ if command -v "git"> /dev/null 2>&1; then
   alias gfe="git fetch"
   alias mgpl='find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;'
   alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+  alias multipull="find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;"
+  alias multifetch="find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} fetch \;"
 fi
 
 # nvm alias
