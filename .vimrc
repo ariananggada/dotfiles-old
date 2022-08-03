@@ -196,6 +196,8 @@ silent! if plug#begin('~/.vim/plugged')
     Plug 'github/copilot.vim'
   endif
 
+  Plug 'puremourning/vimspector'
+
 
   call plug#end()
 endif
@@ -594,7 +596,8 @@ try
         \ 'coc-go',
         \ 'coc-vimtex',
         \ 'coc-prettier',
-        \ 'coc-yaml'
+        \ 'coc-yaml',
+        \ 'coc-svelte'
         \ ]
 
     command! -nargs=0 Prettier :CocCommand prettier.formatFile
