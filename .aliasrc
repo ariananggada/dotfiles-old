@@ -7,6 +7,8 @@ alias l='ls -aF'
 alias grep='GREP_COLOR="1;33;40" LANG=C grep --exclude-dir=node_modules --color=auto'
 alias clr='clear;reset;tmux clear-history'
 alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 
 # git alias
 if command -v "git"> /dev/null 2>&1; then
